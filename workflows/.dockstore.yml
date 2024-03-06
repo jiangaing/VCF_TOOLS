@@ -1,7 +1,7 @@
 version: 1.0
 workflows:
   - subclass: WDL
-    primaryDescriptorPath: /workflows/main.wdl
+    primaryDescriptorPath: /main.wdl
     readMePath: /README.md
     authors:
       - name: Chang
