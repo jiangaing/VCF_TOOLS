@@ -1,7 +1,6 @@
 version: 1.2
 workflows:
   - subclass: WDL
-    publish: True
     primaryDescriptorPath: /workflows/main.wdl
     readMePath: /README.md
     authors:
