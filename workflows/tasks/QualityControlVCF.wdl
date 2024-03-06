@@ -8,12 +8,12 @@ task QualityControl {
         String region = "chr1"     # Estimated Minor Allele Frequency
     }
 
-    command <<<
-            bcftools view -i 'R2>${R2} & MAF>${MAF}' ~{vcf_subset} -o ~{region}_filtered.vcf
+    command <<<Í
+            bcftools view -i 'R2>~{R2} & MAF>~{MAF}' ~{vcf_subset} -o ~{region}_filtered.vcf
     >>>
 
     output {
-        File vcf_subset_QC = vcf_subset + "_filtered.vcf"
+        File vcf_subset_QC = region + "_filtered.vcf"
     }
 
     runtime {
