@@ -1,6 +1,6 @@
 {
   "R2": 0.3,
-  "region": "Chr1",
+  "region": "chr1",
   "vcf_subset": "/Users/jiangc/Downloads/submissions_29138e4c-6e94-4fe7-950c-98c200b57c73_main_ecadab32-61ca-483c-9901-9317e285c49d_call-subsetVCF_cacheCopy_chr17_44345302-44353106_subset.vcf",
   "MAF": 0.00
 }

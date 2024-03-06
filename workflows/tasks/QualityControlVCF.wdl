@@ -4,11 +4,12 @@ task QualityControl {
     input {
         File vcf_subset
         Float? R2 = 0.3  # Default minimum quality score
-        Float? MAF = 0.001     # Estimated Minor Allele Frequency
+        Float? MAF = 0.001 
+        String region = "chr1"     # Estimated Minor Allele Frequency
     }
 
     command <<<
-            bcftools view -i 'R2>${R2} & MAF>${MAF}' ~{vcf_subset} -o ~{vcf_subset}_filtered.vcf
+            bcftools view -i 'R2>${R2} & MAF>${MAF}' ~{vcf_subset} -o ~{region}_filtered.vcf
     >>>
 
     output {
