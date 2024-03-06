@@ -1,0 +1,9 @@
+version: 1.0
+workflows:
+  - subclass: WDL
+    publish: True
+    primaryDescriptorPath: /workflows/main.wdl
+    readMePath: /README.md
+    authors:
+      - name: Chang
+        email: jiang.chang@well.ox.ac.uk
