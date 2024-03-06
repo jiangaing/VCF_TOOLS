@@ -5,7 +5,6 @@ task QualityControl {
         File vcf_subset
         Float? R2 = 0.3  # Default minimum quality score
         Float? MAF = 0.001     # Estimated Minor Allele Frequency
-        
     }
 
     command <<<

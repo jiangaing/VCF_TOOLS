@@ -1,0 +1,9 @@
+{
+  "vep_version": "String (optional, default = \"release_110.1\")",
+  "genome_reference": "File",
+  "file_label": "String (optional, default = \"output\")",
+  "vep_fork": "Int (optional, default = 12)",
+  "vep_cache": "File",
+  "vcf_subset_QC": "File"
+}
+
