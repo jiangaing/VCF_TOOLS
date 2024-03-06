@@ -38,8 +38,4 @@ workflow main {
         author: "Chang"
         email: "jiang.chang@well.ox.ac.uk"
     }
-    runtime {
-    docker: "quay.io/collaboratory/dockstore-tool-bamstats:1.25-6_1.0"
-    memory: mem_gb + "GB"
-}
 }
