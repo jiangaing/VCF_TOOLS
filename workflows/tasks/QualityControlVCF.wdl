@@ -10,6 +10,7 @@ task QualityControl {
     }
 
     command <<<
+            bcftools index ~{vcf_subset}
             bcftools view -i 'R2>${R2} & MAF>${MAF}' ~{vcf_subset} -o ~{vcf_subset}_filtered.vcf
     >>>
 
