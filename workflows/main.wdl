@@ -33,4 +33,9 @@ workflow main {
         File annotated_variants = AnnotateVariants.annotated_variants
         File variants_vep_stats = AnnotateVariants.variants_vep_stats
     }
+    meta {
+        description: "A WDL-based workflow for VCF file"
+        author: "Chang"
+        email: "jiang.chang@well.ox.ac.uk"
+    }
 }
