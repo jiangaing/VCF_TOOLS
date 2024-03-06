@@ -9,10 +9,8 @@ workflow main {
     input {
         File vcf
         String? region = "chr1"
-        Float? minQual = 20.0
-        Int? minDepth = 10
-        Int? minGQ = 30
-        Float? maxAF = 0.05
+        Float? R2 = 0.3  # Default minimum quality score
+        Float? MAF = 0.01 
         File vep_cache
         File genome_reference
     }
