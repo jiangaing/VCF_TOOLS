@@ -9,7 +9,7 @@ task QualityControl {
     }
 
     command <<<Í
-            bcftools view -i 'R2>~{R2} & MAF>~{MAF}' ~{vcf_subset} -o ~{region}_filtered.vcf
+            bcftools view -i "R2>~{R2} & MAF>~{MAF}" ~{vcf_subset} -o ~{region}_filtered.vcf
     >>>
 
     output {
