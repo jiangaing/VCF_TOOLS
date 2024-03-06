@@ -4,14 +4,13 @@ version 1.0
 task QualityControl {
     input {
         File vcf_subset
-        Float minQual = 20.0  # Default minimum quality score
-        Int minDepth = 10     # Default minimum depth of coverage
-        Int minGQ = 30        # Default minimum genotype quality
-        Float maxAF = 0.05    # Default maximum allele frequency
+        Float? R2 = 0.3  # Default minimum quality score
+        Float? MAF = 0.01     # Estimated Minor Allele Frequency
+        
     }
 
     command <<<
-            bcftools view -i 'QUAL>${minQual} & DP>${minDepth} & GQ>${minGQ} & AF<${maxAF}' ~{vcf_subset} -o ~{vcf_subset}_filtered.vcf
+            bcftools view -i 'R2>${R2} & MAF>${MAF}' ~{vcf_subset} -o ~{vcf_subset}_filtered.vcf
     >>>
 
     output {
