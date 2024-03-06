@@ -7,7 +7,7 @@ task subsetVCF {
     }
 
 
-command <<<
+    command <<<
         bcftools index ~{vcf}
         bcftools view -r ~{region} ~{vcf} -o ~{region}_subset.vcf
     >>>

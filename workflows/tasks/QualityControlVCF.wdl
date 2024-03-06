@@ -1,6 +1,5 @@
 version 1.0
 
-
 task QualityControl {
     input {
         File vcf_subset
