@@ -19,7 +19,7 @@ workflow main {
         input: vcf = vcf, region = region
     }
     call QualityControlVCF.QualityControl {
-        input: vcf_subset = subsetVCF.vcf_subset, minQual = minQual, minDepth = minDepth, minGQ = minGQ, maxAF = maxAF
+        input: vcf_subset = subsetVCF.vcf_subset, R2 = R2, MAF = MAF
     }
     call AnnotateVariants.AnnotateVariants {
         input: vcf_subset_QC = QualityControl.vcf_subset_QC, vep_cache = vep_cache, genome_reference = genome_reference, file_label = "final"
