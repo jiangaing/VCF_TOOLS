@@ -14,7 +14,7 @@ task QualityControl {
     >>>
 
     output {
-        File vcf_subset_QC = "~{vcf_subset}_filtered.vcf"
+        File vcf_subset_QC = vcf_subset + "_filtered.vcf"
     }
 
     runtime {
