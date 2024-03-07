@@ -1,10 +1,8 @@
-# Terra_test
+# Variant Calling and Annotation from imputed genotype data
 [![Open](https://img.shields.io/badge/Open-Dockstore-blue)](https://dockstore.org/workflows/github.com/jiangaing/VCF_TOOLS:main?tab=info)
 
 > [!TIP]
 > To import the workflow into your Terra workspace, click on the above Dockstore badge, and select 'Terra' from the 'Launch with' widget on the Dockstore workflow page.
-
-# Variant Calling and Annotation from imputed genotype data
 
 ## Workflow Steps
 
