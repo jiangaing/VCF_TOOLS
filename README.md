@@ -20,48 +20,48 @@ The main inputs to the workflow are:
     - `vcf`: Input imputed genotype file in .vcf format.
     - `region`: Interested genomic regions. eg, "chr17:44345302-44353106" for GRN gene
     - `vep_cache` : VEP cache in .zip format. This [cache](https://www.ensembl.org/info/docs/tools/vep/script/vep_cache.html#cache) is required by the `VEP` tool for annotation. The version being used is [Ensembl GRCh38 release v110](https://ftp.ensembl.org/pub/release-110/variation/vep/homo_sapiens_vep_110_GRCh38.tar.gz).
-    filter parameters
+    - filter parameters
     - `R2`: 0.3 "Estimated Imputation Accuracy (R-square)" # Default minimum accuracy score
     - `MAF`: 0.05 "Estimated Minor Allele Frequency" # Default minimum accuracy score
     - `genome_reference` : Human reference genome .fasta file. The version being used is GRCh38 release110 ([source](https://ftp.ensembl.org/pub/release-110/fasta/homo_sapiens/dna/))
 - **optional** 
+    -from column INFO in VCF file
+    - `AF`: Estimated Alternate Allele Frequency, Float,[0,1]
+    - `MAF`: Estimated Minor Allele Frequency, Float,[0,1]
+    - `R2`: Estimated Imputation Accuracy (R-square), Float,[0,1]
+    - `ER2`: Empirical (Leave-One-Out) R-square (available only for genotyped variants), Float, [0,1]
+    - `IMPUTED`: Marker was imputed but NOT genotyped, Flag, 0/1
+    - `TYPED`: Marker was genotyped AND imputed, Flag, 0/1
+    - `TYPED_ONLY`: Description="Marker was genotyped but NOT imputed, Flag, 0/1
 
-    - `AF`: ##INFO=<ID=AF,Number=1,Type=Float,Description= Estimated Alternate Allele Frequency>
-    - `AF`: ##INFO=<ID=MAF,Number=1,Type=Float,Description="Estimated Minor Allele Frequency">
-    - `AF`: ##INFO=<ID=R2,Number=1,Type=Float,Description="Estimated Imputation Accuracy (R-square)">
-    - `ER2`: ##INFO=<ID=ER2,Number=1,Type=Float,Description="Empirical (Leave-One-Out) R-square (available only for genotyped variants)">
-    - `IMPUTED`: ##INFO=<ID=IMPUTED,Number=0,Type=Flag,Description="Marker was imputed but NOT genotyped">
-    - `TYPED`: ##INFO=<ID=TYPED,Number=0,Type=Flag,Description="Marker was genotyped AND imputed">
-    - `TYPED_ONLY`: ##INFO=<ID=TYPED_ONLY,Number=0,Type=Flag,Description="Marker was genotyped but NOT imputed">
+    -from column FORMAT in VCF file
+    - `GT`: Genotype, String, 0|0 or 1|0 or 1|1
+    - `DS`: Estimated Alternate Allele Dosage, Float : [P(0/1)+2*P(1/1)]
+    - `HDS`: Estimated Haploid Alternate Allele Dosage, Float, [0,1]
+    - `GP`: Number=3,Type=Float,Description="Estimated Posterior Probabilities for Genotypes 0/0, 0/1, 1/1
 
-    - `GT`: ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
-    - `DS`: ##FORMAT=<ID=DS,Number=1,Type=Float,Description="Estimated Alternate Allele Dosage : [P(0/1)+2*P(1/1)]">
-    - `HDS`: ##FORMAT=<ID=HDS,Number=2,Type=Float,Description="Estimated Haploid Alternate Allele Dosage">
-    - `GP`: ##FORMAT=<ID=GP,Number=3,Type=Float,Description="Estimated Posterior Probabilities for Genotypes 0/0, 0/1 and 1/1">
-
-
-- **raw_annotated_reference**: Human reference genome .gff file (General Feature Format). The version being used is GRCh38 release110 ([source](https://ftp.ensembl.org/pub/release-110/gff3/homo_sapiens/Homo_sapiens.GRCh38.110.gff3.gz)).
 
 - ## Outputs
 
 The main output files are listed below:
 
-- **SortBam**:
-  - `sorted_bam` :Sorted bam file
-- **FeatureCount**:
-   - `raw_count_file`: Text file containing raw gene expression count
- 
+- **subsetVCF**:
+    - `vcf_subset` : Vcf file contains variant in input interested region
+- **QualityControl**:
+    - `vcf_subset_QC`: Vcf file contains variant in input interested region after filtering
+- **AnnotateVariants**
+    - `annotated_variants`: VCF file containing annotated variants.
+    - `variants_vep_stats`: Statistics for annotated variants.
+
+
+
 ## Components
 
-
-- **Tools**
-  - samtools
-  - featureCounts
 - **Containers**
-  - pegi3s/samtools_bcftools
-  - pegi3s/feature-counts
+  - staphb/bcftools
   - ensemblorg/ensembl-vep
+
  
  ## Acknowledgement
-
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 - Anand Maurya: [https://github.com/anand-imcm](https://github.com/anand-imcm)
