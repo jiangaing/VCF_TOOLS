@@ -8,7 +8,7 @@
 
 - **subsetVCF**: The variants in the VCF file are subgrouped based on the genomic regions
 
-- **QualityControl**: The variants in the VCF file are filtered using bcftools view to include only variants that have passed all filters, and filters can be defined by user. 
+- **Filter SNP**: The variants in the VCF file are filtered using bcftools view to include only variants that have passed all filters, and filters can be defined by user. 
 
 - **AnnotateVariants**: The function are synchronized from ([source](https://https://github.com/anand-imcm/pb-variant-call?tab=readme-ov-file))
 
